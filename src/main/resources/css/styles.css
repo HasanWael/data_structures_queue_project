@@ -1,0 +1,131 @@
+/* Main Styles */
+.background {
+    -fx-background-color: linear-gradient(to bottom, #f0f5fa, #e0eaf5);
+}
+
+.title-label {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a237e;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+/* Service Selection Styles */
+.service-box {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    -fx-padding: 20px;
+    -fx-spacing: 15px;
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+    -fx-cursor: hand;
+}
+
+.service-box:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,100,255,0.4), 15, 0, 0, 8);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition: all 0.3s ease;
+}
+
+.service-button {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 30px;
+    -fx-cursor: hand;
+    -fx-min-width: 150px;
+}
+
+.service-button:hover {
+    -fx-background-color: #303f9f;
+}
+
+.service-button:pressed {
+    -fx-background-color: #0d47a1;
+}
+
+/* Ticket Label Styles */
+.ticket-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0d47a1;
+    -fx-background-color: #e3f2fd;
+    -fx-background-radius: 5px;
+    -fx-padding: 10 20 10 20;
+    -fx-border-color: #bbdefb;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+/* History Button Styles */
+.history-button {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-radius: 30px;
+    -fx-border-color: #bbdefb;
+    -fx-border-radius: 30px;
+    -fx-border-width: 1px;
+    -fx-padding: 8px;
+    -fx-opacity: 0.7;
+}
+
+.history-button:hover {
+    -fx-opacity: 1.0;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* History View Styles */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-color: #bbdefb;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f5f8ff;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #bbdefb;
+}
+
+/* Back Button Styles */
+.back-button {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: #303f9f;
+}
+
+.back-button:pressed {
+    -fx-background-color: #0d47a1;
+}
