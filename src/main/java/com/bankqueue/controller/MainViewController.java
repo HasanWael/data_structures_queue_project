@@ -1,6 +1,5 @@
 package com.bankqueue.controller;
 
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,17 +8,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import com.bankqueue.model.Queue;
 import com.bankqueue.model.Stack;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class MainViewController {
+
+    @FXML
+    private VBox withdrawBox;
+
+    @FXML
+    private VBox depositBox;
 
     @FXML
     private Button withdrawButton;
@@ -48,12 +54,12 @@ public class MainViewController {
     }
 
     @FXML
-    void onDepositClicked(ActionEvent event) {
+    void onDepositClicked(MouseEvent event) {
         processService("Deposit");
     }
 
     @FXML
-    void onWithdrawClicked(ActionEvent event) {
+    void onWithdrawClicked(MouseEvent event) {
         processService("Withdraw");
     }
 
