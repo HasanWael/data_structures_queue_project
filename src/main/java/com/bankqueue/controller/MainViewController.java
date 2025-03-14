@@ -1,5 +1,6 @@
 package com.bankqueue.controller;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import com.bankqueue.model.Queue;
 import com.bankqueue.model.Stack;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -51,16 +53,21 @@ public class MainViewController {
         withdrawQueue = new Queue();
         depositQueue = new Queue();
         transactionLog = new Stack();
+
+        // Make it not visible from the MainView.fxml file
+        // ticketLabel.setVisible(false);
     }
 
     @FXML
     void onDepositClicked(MouseEvent event) {
-        processService("Deposit");
+        if (processService("Deposit"))
+            ticketLabel.setVisible(true);
     }
 
     @FXML
     void onWithdrawClicked(MouseEvent event) {
-        processService("Withdraw");
+        if (processService("Withdraw"))
+            ticketLabel.setVisible(true);
     }
 
     @FXML
@@ -84,12 +91,12 @@ public class MainViewController {
         }
     }
 
-    private void processService(String serviceType) {
+    private boolean processService(String serviceType) {
         Queue serviceQueue = "Withdraw".equals(serviceType) ? withdrawQueue : depositQueue;
 
         if (!serviceQueue.serviceAvailable()) {
             showAlert("Service Unavailable", "The " + serviceType + " service is currently unavailable due to high demand. Please try again later.");
-            return;
+            return false;
         }
 
         int ticketNumber = serviceQueue.generateTicket();
@@ -102,10 +109,12 @@ public class MainViewController {
             // Show success animation/message
             showTicketSuccess(ticketNumber);
 
-//            PauseTransition hideLabelTimer = new PauseTransition(Duration.seconds(3));
-//            hideLabelTimer.setOnFinished(event -> ticketLabel.setVisible(false)); // Clear the label
-//            hideLabelTimer.play();
+            PauseTransition hideLabelTimer = new PauseTransition(Duration.seconds(3));
+            hideLabelTimer.setOnFinished(event -> ticketLabel.setVisible(false)); // Clear the label
+            hideLabelTimer.play();
         }
+
+        return true;
     }
 
     private void logTransaction(int ticketNumber, String serviceType) {

@@ -65,11 +65,7 @@ public class Queue {
     }
 
     public boolean serviceAvailable() {
-        if (isFull()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !isFull();
     }
 
     public int generateTicket() {
